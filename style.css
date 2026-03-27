@@ -1,0 +1,842 @@
+/* ================================================
+   PORTFOLIO — style.css
+   Structure :
+   1. Variables CSS (couleurs, polices)
+   2. Reset & base
+   3. Navigation
+   4. Hero
+   5. Sections (en-têtes communs)
+   6. À propos
+   7. Compétences
+   8. Projets
+   9. Parcours (timeline)
+   10. Contact
+   11. Footer
+   12. Animations
+   13. Responsive (mobile)
+================================================ */
+
+
+/* ================================================
+   1. VARIABLES CSS
+   Définies dans :root pour être réutilisées partout.
+   Tu changes une couleur ici → ça change sur tout le site.
+================================================ */
+:root {
+  --navy:       #0d1b2a;   /* Bleu très foncé (fond hero, nav) */
+  --slate:      #2e4057;   /* Bleu-gris (textes secondaires) */
+  --gold:       #c9a84c;   /* Or (couleur d'accent principale) */
+  --gold-light: #e8c97a;   /* Or clair (hover) */
+  --cream:      #f8f4ee;   /* Beige clair (fond des sections paires) */
+  --white:      #ffffff;
+  --black:      #ffffff;   /* Texte clair sur fond sombre (hero h1) */
+  --text:       #2c3e50;   /* Couleur texte principale */
+  --muted:      #6b7c8d;   /* Texte secondaire / grisé */
+  --border:     #272727;   /* Couleur des bordures */
+}
+
+
+/* ================================================
+   2. RESET & BASE
+   Supprime les marges/paddings par défaut du navigateur
+   et définit la police & couleur globales.
+================================================ */
+*, *::before, *::after {
+  box-sizing: border-box; /* La largeur inclut padding et border */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* Défilement fluide au clic sur les ancres (#about etc.) */
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.7; /* Espacement entre les lignes de texte */
+}
+
+
+/* ================================================
+   3. NAVIGATION
+   Position fixed = reste visible même en scrollant.
+   backdrop-filter = effet de flou derrière la nav.
+================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100; /* Toujours au-dessus du reste */
+  background: rgba(13, 27, 42, 0.97);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 64px;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  text-decoration: none; /* Retire le soulignement du lien */
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none; /* Retire les puces de la liste */
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s; /* Animation douce sur le changement de couleur */
+}
+
+.nav-links a:hover {
+  color: var(--gold); /* Couleur au survol */
+}
+
+/* Bouton "Contact" dans la nav (style différent) */
+.nav-cta {
+  background: var(--gold);
+  color: var(--navy) !important; /* !important pour écraser le blanc des autres liens */
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 600 !important;
+}
+.nav-cta:hover {
+  background: var(--gold-light) !important;
+  color: var(--navy) !important;
+}
+
+/* Icône burger (3 traits) — cachée sur desktop, visible sur mobile */
+.burger {
+  display: none; /* Caché par défaut */
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.burger span {
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+
+/* ================================================
+   4. HERO
+   min-height: 100vh = prend toute la hauteur de l'écran.
+   ::before = pseudo-élément pour la grille décorative en fond.
+================================================ */
+#hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  align-items: center; /* Centre verticalement le contenu */
+  padding: 100px 5% 60px; /* 100px en haut pour éviter la nav fixe */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fond décoratif : dégradé + grille de lignes subtiles */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* Couvre tout le parent */
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 70%),
+    repeating-linear-gradient(0deg,  transparent, transparent 59px, rgba(255,255,255,0.02) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.02) 60px);
+  pointer-events: none; /* Empêche ce pseudo-élément de bloquer les clics */
+}
+
+.hero-inner {
+  position: relative; /* Pour être au-dessus du ::before */
+  max-width: 700px;
+  animation: fadeUp 0.8s ease both; /* Animation d'apparition au chargement */
+}
+
+/* Petit badge "Computer & IT — 1ère année" */
+.hero-tag {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: var(--gold);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin-bottom: 1.5rem;
+}
+
+#hero h1 {
+  font-family: 'Playfair Display', serif;
+  /* clamp(min, valeur-fluide, max) : s'adapte à la taille de l'écran */
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  color: var(--black);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+/* Le prénom en doré */
+#hero h1 span {
+  color: var(--gold);
+}
+
+.hero-sub {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.1rem;
+  font-weight: 300;
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* Les boutons passent à la ligne si pas assez de place */
+}
+
+/* Styles communs aux boutons */
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+/* Bouton plein (doré) */
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px); /* Légère élévation au survol */
+}
+
+/* Bouton contour (transparent avec bordure) */
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Flèche "Scroll" en bas de la hero */
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(84, 81, 81, 0.3);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+/* Trait vertical sous "Scroll" */
+.hero-scroll::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(51, 50, 49, 0.6), transparent);
+}
+
+
+/* ================================================
+   5. EN-TÊTES DE SECTIONS (communs à toutes)
+   Chaque section a : padding, .section-header, .section-title...
+================================================ */
+section {
+  padding: 90px 5%;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+/* Petit texte coloré au-dessus du titre */
+.section-label {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--navy);
+}
+
+/* Ligne décorative dorée sous le titre */
+.section-line {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+
+/* ================================================
+   6. À PROPOS
+   Grille 2 colonnes : avatar | texte
+================================================ */
+#about {
+  background: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr; /* Avatar plus petit, texte plus large */
+  gap: 5rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto; /* Centrer la grille */
+}
+
+/* Carré qui représente la photo de profil */
+.about-avatar {
+  width: 100%;
+  aspect-ratio: 1; /* Toujours carré */
+  border-radius: 8px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+/* Carré décoratif derrière l'avatar */
+.about-avatar::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 70%;
+  height: 70%;
+  border: 3px solid var(--gold);
+  border-radius: 8px;
+  opacity: 0.3;
+}
+
+.about-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* Badges de centres d'intérêt */
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.tag {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  color: var(--slate);
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+
+/* ================================================
+   7. COMPÉTENCES
+   Grille de cartes avec barres de progression.
+================================================ */
+#skills {
+  background: var(--cream);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  /* auto-fit = nombre de colonnes automatique selon la largeur */
+  /* minmax(260px, 1fr) = chaque colonne fait au moins 260px */
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+ /* Styles des compétences */
+  #skills {
+    background: var(--cream);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(13, 27, 42, 0.1);
+  }
+
+  .skill-card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-card h4 {
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+
+  /* Styles de la barre de compétence */
+  .skill-item {
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-item-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .skill-bar {
+    height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy), var(--gold));
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.2s ease;
+  }
+
+  /* Liste à puces pour les compétences techniques */
+  .skill-list {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  .skill-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .skill-list li:last-child { border-bottom: none; }
+
+  .skill-list li::before {
+    content: '▸';
+    color: var(--gold);
+    font-size: 0.75rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+
+/* ================================================
+   8. PROJETS
+   Grille de cartes avec miniature + description.
+================================================ */
+#projects {
+  background: var(--white);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.8rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden; /* Empêche le contenu de dépasser le border-radius */
+  background: var(--white);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(13, 27, 42, 0.12);
+}
+
+/* Zone de miniature (image ou emoji du projet) */
+.project-thumb {
+  height: 160px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Légère teinte dorée sur la miniature */
+.project-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.project-body {
+  padding: 1.5rem;
+}
+
+/* Badges des technos (Python, JS...) */
+.project-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+.tech-badge {
+  background: rgba(13, 27, 42, 0.07);
+  color: var(--slate);
+  font-size: 0.72rem;
+  padding: 3px 9px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+.project-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.project-body p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.project-link {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.project-link:hover {
+  text-decoration: underline;
+}
+
+
+/* ================================================
+   9. PARCOURS — TIMELINE
+   Ligne verticale à gauche, étapes à droite.
+================================================ */
+#parcours {
+  background: var(--cream);
+}
+
+.timeline {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative; /* Pour positionner le ::before (la ligne) */
+}
+
+/* La ligne verticale dorée */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px; /* Alignée avec le centre des dots */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--border));
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+
+/* Le cercle coloré sur la ligne */
+.timeline-dot {
+  width: 42px;
+  height: 42px;
+  min-width: 42px; /* Empêche le cercle de se réduire */
+  background: var(--navy);
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  z-index: 1; /* Au-dessus de la ligne verticale */
+}
+
+/* La carte de contenu */
+.timeline-content {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  flex: 1; /* Prend tout l'espace restant */
+}
+
+.timeline-date {
+  font-size: 0.75rem;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.timeline-content h4 {
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+.timeline-content p {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+
+/* ================================================
+   10. CONTACT
+   Section sombre avec grille : infos | formulaire
+================================================ */
+#contact {
+  background: var(--navy);
+}
+
+/* On surcharge les couleurs pour la section sombre */
+#contact .section-title { color: var(--white); }
+#contact .section-label  { color: var(--gold); }
+#contact .section-line   { background: var(--gold); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.contact-info p {
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.contact-link:hover { color: var(--gold); }
+
+.contact-link-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* Formulaire */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  outline: none; /* Retire le contour bleu par défaut */
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--gold); /* Bordure dorée quand actif */
+}
+.form-group textarea {
+  resize: vertical; /* Redimensionnable uniquement en hauteur */
+  min-height: 120px;
+}
+
+/* Bouton d'envoi */
+.btn-send {
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-send:hover { background: var(--gold-light); }
+
+
+/* ================================================
+   11. FOOTER
+================================================ */
+footer {
+  background: #070f18; /* Plus sombre que --navy */
+  text-align: center;
+  padding: 2rem 5%;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.82rem;
+}
+footer span { color: var(--gold); }
+
+
+/* ================================================
+   12. ANIMATIONS
+================================================ */
+
+/* Animation d'apparition (utilisée sur le hero et les éléments reveal) */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px); /* Part d'en bas */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation de rebond pour la flèche "Scroll" */
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Classe de base pour les éléments à révéler au scroll */
+/* L'élément est invisible, JS ajoute la classe .visible quand il entre dans l'écran */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ================================================
+   13. RESPONSIVE — MOBILE (max 768px)
+================================================ */
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    padding: 1.5rem 5%;
+    gap: 1rem;
+  }
+  .nav-links.open { display: flex; }
+
+  .burger { display: flex; }
+
+  .about-grid,
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  .hero-btns { flex-direction: column; }
+}
+

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio – Hamza Mahamat</title>
+
+  <!-- Polices Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Feuille de style externe -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  
+
+  <!-- ===========================
+       NAVIGATION (barre fixe en haut)
+  =========================== -->
+  <nav>
+    <!-- Logo / Nom cliquable qui ramène en haut -->
+    <a class="nav-logo" href="#hero">Welcome</a>
+
+    <!-- Liens de navigation -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"> about</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+     <li><a href="#cert">Certifications</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+
+    <!-- Icône hamburger (visible uniquement sur mobile) -->
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+
+  <!-- ===========================
+       SECTION 1 — HERO (page d'accueil)
+  =========================== -->
+  <section id="hero">
+    <div class="hero-inner">
+      <!-- Petit badge au-dessus du titre -->
+      <div class="hero-tag">Computer &amp; IT — First-Year</div>
+
+      <!-- Titre principal -->
+      <h1>Hello and welcome<br/><span> to my portfolio </span></h1>
+
+      <!-- Phrase d'accroche -->
+      <p class="hero-sub">
+        I'm a student with a passion for computer science, software development, Networking and new technologies.
+        Always keen to learn something new every day. I'm also actively looking for an internship or apprenticeship as an IT Technician.
+      </p>
+
+      <!-- Boutons d'action -->
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View my projects</a>
+        <a href="#contact"  class="btn btn-outline">Contact me</a>
+        <a href="cv/IT cv.pdf" class="btn btn-outline" target="_blank" rel="noopener">See my CV ↗</a>
+      </div>
+    </div>
+
+    <!-- Indicateur de scroll en bas de page -->
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION 2 — À PROPOS
+  =========================== -->
+  <section id="about">
+    <!-- En-tête de section (label + titre + ligne décorative) -->
+    <div class="section-header reveal">
+      <div class="section-label">Who I am </div>
+      <h2 class="section-title">About me</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Grille : photo à gauche, texte à droite -->
+    <div class="about-grid">
+      <!-- Avatar / photo de profil -->
+      <div class="about-avatar reveal">🧑‍💻</div>
+
+      <!-- Texte de présentation -->
+      <div class="about-text reveal">
+        <h3>I'm Hamza MAHAMAT SABOUNE</h3>
+        <p>I am currently a first-year student studying BSc (Honours) Computing and IT.</p>
+        <p>Through this portfolio, I would like to share an overview of my academic journey, as well as the projects I have developed so far. 
+
+You will find information about my skills, education, and practical work, along with my CV and various IT projects that demonstrate my growing experience in the field.
+        </p>
+
+        <!-- Badges de centres d'intérêt -->
+        <div class="about-tags">
+          <span class="tag">🎮 Gaming</span>
+          <span class="tag">🔐 Basket-Ball</span>
+          <span class="tag">🌐 Web Developpement </span>
+          <span class="tag">🤖 Artificielle Intelligence </span>
+          <span class="tag">📚 Self-taught</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION 3 — COMPÉTENCES
+  =========================== -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <div class="section-label"> hi What I can do</div>
+      <h2 class="section-title">Technical skills</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Grille de cartes compétences -->
+    <div class="skills-grid">
+
+      <!-- Carte 1 : Systèmes & Sécurité -->
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🖥️</div>
+        <h4>Systems Administration &amp; Security</h4>
+        <ul class="skill-list">
+          <li>Windows Server (2016/2012 R2) — DNS, DHCP, Active Directory</li>
+          <li>Group Policy Objects (GPOs) for security enforcement</li>
+          <li>Linux Debian (9/10) — user permissions, firewalls, critical services</li>
+          <li>System hardening via access control, security policies &amp; monitoring</li>
+        </ul>
+      </div>
+
+      <!-- Carte 2 : Administration réseau -->
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🌐</div>
+        <h4>Network Administration &amp; Configuration</h4>
+        <ul class="skill-list">
+          <li>LAN/WAN design with VLAN segmentation &amp; advanced routing</li>
+          <li>Routing protocols — RIP, OSPF, HSRP, VRRP</li>
+          <li>Switching protocols — STP, VTP (loop attack prevention)</li>
+          <li>Traffic analysis &amp; performance optimization</li>
+        </ul>
+      </div>
+
+      <!-- Carte 3 : Dev & BDD -->
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">💻</div>
+        <h4>Development &amp; Database Security</h4>
+        <ul class="skill-list">
+          <li>Web applications — HTML, CSS, PHP &amp; Javascript</li>
+          <li>Database administration &amp; SQL</li>
+        </ul>
+      </div>
+
+      <!-- Carte 4 : Soft Skills & Languages -->
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🧠</div>
+        <h4>Soft Skills &amp; Languages</h4>
+        <div class="skill-item">
+          <div class="skill-item-top"><span>Problem-solving</span><span>70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-top"><span>Teamwork</span><span>80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-top"><span>Learnability</span><span>75%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-top"><span>English</span><span>55%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="55"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-top"><span>French</span><span>97%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-item-top"><span>Arabic</span><span>65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION 4 — PROJETS
+  =========================== -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <div class="section-label">What I have achieved</div>
+      <h2 class="section-title">My projets</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Grille de cartes projets -->
+    <div class="projects-grid">
+
+      <!-- Projet 1 -->
+      <div class="project-card reveal">
+        <!-- Miniature / icône du projet -->
+        <div class="project-thumb">🖧</div>
+
+        <div class="project-body">
+          <!-- Badges des technologies utilisées -->
+          <div class="project-techs">
+            <span class="tech-badge">cisco Packet Tracer</span>
+            <span class="tech-badge">Router</span>
+            <span class="tech-badge">Switch</span>
+          </div>
+
+          <h3>Cisco Packet Tracer – Network Simulation</h3>
+          <p>Network simulation application for building and configuring a local area network (LAN). The project involved setting up two PCs, a switch, and a router, ensuring end-to-end connectivity and correct IP address configuration according to the provided scenarios.</p>
+          <a href="projects/project1.pdf" class="btn btn-primary">Open document →</a>
+        </div>
+      </div>
+
+      <!-- Projet 2 -->
+      <div class="project-card reveal">
+        <div class="project-thumb">🌐</div>
+        <div class="project-body">
+          <div class="project-techs">
+            <span class="tech-badge">Cisco Packet Tracer</span>
+            <span class="tech-badge">DHCP</span>
+            <span class="tech-badge">Wireless-WI-FI</span>
+          </div>
+          <h3>DHCP Configuration – Network Simulation</h3>
+          <p>Network simulation activity demonstrating how to implement DHCP. The task involved connecting three computers to a wireless router, setting the DHCP range, and configuring clients to obtain their IP addresses automatically. The objective was to ensure successful network connectivity via the DHCP server.</p>
+          <a href="projects/project2.pdf" class="btn btn-primary">Open document →</a>
+        </div>
+      </div>
+
+      <!-- Projet 3 -->
+      <div class="project-card reveal">
+        <div class="project-thumb">💻</div>
+        <div class="project-body">
+          <div class="project-techs">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">Javascript</span>
+          </div>
+          <h3>Personal Portfolio – Web Development</h3>
+          <p>Created an interactive portfolio using HTML, CSS, and JavaScript, with EmailJS integration for contact form functionality. The project is designed to showcase my skills and work in a clear and professional way..</p>
+          <a href="https://github.com/saboune66/Personal-Portfolio-Web-Development.git" class="btn btn-primary">view on GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION 5 — PARCOURS (timeline)
+  =========================== -->
+  <section id="education">
+    <div class="section-header reveal">
+      <div class="section-label">My Journey</div>
+      <h2 class="section-title"> Educational Background </h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Ligne de temps verticale -->
+    <div class="timeline">
+
+      <!-- Étape 1 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">🎓</div>
+        <div class="timeline-content">
+          <div class="timeline-date">2026 — Present</div>
+          <h4>BSc (Honours) Computer &amp; IT</h4>
+          <p>First-Year Student</p>
+          <p>Open University.</p>
+        </div>
+      </div>
+        <div class="timeline-item reveal">
+        <div class="timeline-dot">🎓</div>
+        <div class="timeline-content">
+          <div class="timeline-date">2025-2026</div>
+          <h4>ESOL(English for Speakers of Other Languages)</h4>
+          <p6>Level 2 </p6>
+          <p>South City College</p>
+        </div>
+      </div>
+
+      <!-- Étape 2 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">🎓</div>
+        <div class="timeline-content">
+          <div class="timeline-date">2022 — 2024</div>
+          <h4> BTS SIO (Service Informatique aux Organisations)</h4>
+          <p>Lycée de Saint-Brieuc.</p>
+        </div>
+      </div>
+
+      <!-- Étape 3 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">🎓</div>
+        <div class="timeline-content">
+          <div class="timeline-date">2021-2022</div>
+          <h4>Baccauleareat serie General </h4>
+          <p>Lycee Charles Lwanga - Chad.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===========================
+       SECTION — CERTIFICATIONS
+  =========================== -->
+  <section id="cert" style="background: var(--cream);">
+    <div class="section-header reveal">
+      <div class="section-label">Achievements</div>
+      <h2 class="section-title">Certifications</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-thumb" style="font-size:2.5rem;">🏅</div>
+        <div class="project-body">
+          <div class="project-techs"><span class="tech-badge">Networking Essentials</span></div>
+          <h3>Network Technician Career Path</h3>
+          <p>Networking fundamentals, routing & switching, IP addressing and network security.</p>
+          <p>Successfully completed through The Open University in partnership with Cisco Networking Academy.</p>
+           <a href="images/networking.pdf" class="btn btn-primary" target="_blank" rel="noopener">View Certificate ↗</a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-thumb" style="font-size:2.5rem;">📡</div>
+        <div class="project-body">
+          <div class="project-techs"><span class="tech-badge">Networking</span></div>
+          <h3>Cisvo CCNA: Switching, Routing, and Wireless Essentials (In Progress)</h3>
+          <p>Routing, Access Connectivity, IP services, Switching Protocols, Access Security, Wireless LAN Controllers, High Availability, First-hop Redundancy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===========================
+       SECTION 6 — CONTACT
+  =========================== -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <div class="section-label">LET'S WORK TOGETHER!</div>
+      <h2 class="section-title"> Contact me</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Grille : infos à gauche, formulaire à droite -->
+    <div class="contact-grid">
+
+      <!-- Infos de contact -->
+      <div class="contact-info reveal">
+        <h3>Let's discuus your project!</h3>
+        <p> Fell free to write to me for a collaboration or an internship.</p>
+
+        <div class="contact-links">
+          <a href="/cdn-cgi/l/email-protection#55213a3b153038343c397b363a38" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+           <span class="__cf_email__" data-cfemail="770416151802191245444237101a161e1b5914181a">saboune235@gmail.com</span>
+          </a>
+          <a href="https://linkedin.com" class="contact-link" target="_blank">
+            <div class="contact-link-icon">💼</div>
+            linkedin.com/in/hamza
+          </a>
+          <a href="https://github.com" class="contact-link" target="_blank">
+            <div class="contact-link-icon">🐙</div>
+            github.com/saboune66
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulaire de contact -->
+<div class="contact-form reveal">
+  <div class="form-group">
+    <input type="text" id="from_name" placeholder="Your full name" />
+  </div>
+
+  <div class="form-group">
+    <input type="email" id="from_email" placeholder="Your email" />
+  </div>
+
+  <div class="form-group">
+
+  <div class="form-group">
+    <textarea id="message" placeholder="Your message..."></textarea>
+  </div>
+
+  <button type="button" class="btn-send" onclick="handleSubmit(this)">
+    Send message ✉️
+  </button>
+</div>
+  </section>
+
+
+  <!-- ===========================
+       FOOTER
+  =========================== -->
+  <footer>
+    <p>Designed &amp; developed by <span>Hamza MAHAMAT </span>—2026</p>
+  </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+  (function(){
+    emailjs.init("d6S_iZd9Wg5AFin9A");
+  })();
+</script>
+<script src="script.js"></script>
+</html>
+
+
+ 
